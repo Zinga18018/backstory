@@ -26,6 +26,12 @@ You can also start a blank card, search and filter saved cards, edit or delete t
 
 **Notes do not autosave.** Unfinished captures remain available under **Unfinished captures**. Exports include saved cards only, not unfinished captures or unsaved edits. A stale edit from a second window is rejected instead of overwriting a newer version.
 
+## Interface
+
+<img src="docs/images/backstory-browser-preview.jpg" width="760" alt="Browser-rendered Backstory preview showing a synthetic evidence card and fixed practice questions; temporary storage, not an installed extension.">
+
+Browser-rendered UI preview with synthetic example data and temporary in-memory storage. This is not an installed-extension screenshot. [Capture details and checks](docs/UI-PREVIEW.md).
+
 ## Data flow
 
 ```mermaid
@@ -75,7 +81,7 @@ npm run qa
 # CHROMIUM_PATH=/path/to/chromium npm run qa
 ```
 
-The QA script uses a disposable profile and synthetic data. Browser launch was blocked in the build environment, so real-browser end-to-end testing is **not verified**. The toolbar-to-GitHub permission flow, large collections, and screen-reader behavior still need user-environment testing. See [test coverage and manual checks](docs/TESTING.md).
+The extension QA script uses a disposable profile and synthetic data. Local browser launch was blocked in the build environment, so installed-extension end-to-end testing is **not verified**. The browser preview above was checked separately. The toolbar-to-GitHub permission flow, large collections, and screen-reader behavior still need user-environment testing. See [test coverage and manual checks](docs/TESTING.md).
 
 Runtime code is in `extension/`; pure validation, questions, and export rules are in `extension/core/domain.js`; persistence is in `extension/core/storage.js`. Reload the extension after manifest changes.
 
