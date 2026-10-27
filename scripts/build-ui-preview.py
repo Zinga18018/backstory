@@ -6,13 +6,17 @@ Use a real browser screenshot after reviewing the resulting pages.
 """
 import argparse
 import json
+import re
 from pathlib import Path
 import shutil
 
 root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--output', type=Path, required=True, help='New preview checkout outside the extension directory')
+parser.add_argument('--base-path', default='/', help='Absolute public URL directory, e.g. /demos/backstory/')
 args = parser.parse_args()
+if not re.fullmatch(r'/(?:[A-Za-z0-9_-]+/)*', args.base_path):
+    raise SystemExit('Base path must be an absolute directory path with a trailing slash.')
 output = args.output.resolve()
 if output == root or root in output.parents:
     raise SystemExit('Preview output must be outside the source repository.')
@@ -36,6 +40,9 @@ preview_css = '''
 for name in ['app.html', 'popup.html']:
     path = dist / name
     html = path.read_text()
+    # The portfolio static exporter strips .html; keep relative assets rooted.
+    html = html.replace('<head>', f'<head>\n  <base href="{args.base_path}">')
+    html = html.replace('href="app.html"', 'href="./"')
     html = html.replace('<link rel="stylesheet" href="styles.css">', '<link rel="stylesheet" href="styles.css">\n  <link rel="stylesheet" href="preview.css">\n  <script src="preview-adapter.js"></script>')
     html = html.replace('<body class="workspace-body">', '<body class="workspace-body">\n  ' + label)
     html = html.replace('<body class="popup-body">', '<body class="popup-body">\n  ' + label)
