@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Backstory",
+  "version": "0.1.0",
+  "description": "Keep the decisions behind your GitHub work. Local evidence cards, thoughtful interview practice.",
+  "minimum_chrome_version": "114",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_title": "Backstory — save the story behind your work",
+    "default_popup": "popup.html",
+    "default_icon": {"16": "assets/icon-16.png", "32": "assets/icon-32.png", "48": "assets/icon-48.png", "128": "assets/icon-128.png"}
+  },
+  "icons": {"16": "assets/icon-16.png", "32": "assets/icon-32.png", "48": "assets/icon-48.png", "128": "assets/icon-128.png"},
+  "options_page": "app.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'"
+  }
+}
