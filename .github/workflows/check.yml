@@ -1,0 +1,33 @@
+name: Unit and static checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Node tests and extension checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      # No npm install: the runtime and Node tests have no package dependencies.
+      - name: Run unit and UI-state regression tests
+        run: npm test
+      - name: Check syntax, manifest, local assets, and privacy boundaries
+        run: npm run check
+      - name: Verify source packaging
+        run: python3 scripts/package.py
+      # Real-browser QA remains a separate explicitly documented check.
