@@ -4,6 +4,12 @@
 
 Backstory is a working MVP, not a factual verifier. The name is a working name and has **not** been trademark-checked.
 
+## At a glance
+
+![Code-drawn preview of Backstory’s empty workspace: a local evidence-card collection, search and filters, and Capture, Reflect, Practice guidance. This is an illustration, not a browser screenshot.](docs/images/backstory-workspace-preview.svg)
+
+**UI illustration, not a runtime screenshot.** This source-informed preview uses the app’s palette and empty-state copy, with a simplified layout and no personal records. It does not establish that Chrome extension runtime or browser QA has passed. [Visual sources and regeneration](docs/images/README.md).
+
 ## Install on desktop Chrome — no build or account required
 
 These steps are for **desktop Chrome**, not Android Chrome. This ZIP is not an Android app; you can keep it for a desktop installation.
@@ -114,6 +120,10 @@ After editing the manifest, reload Backstory at `chrome://extensions`. After cod
 - Bulk import, large collections, accessibility with a screen reader, and the actual Chrome toolbar-to-live-GitHub permission gesture still need dedicated user-environment QA.
 
 ## Architecture and references
+
+![Backstory’s local-first flow: explicit GitHub capture reads URL, title and selection; deliberate saves keep evidence cards in local Chrome storage; fixed rules provide practice and user-requested JSON or Markdown exports. The Gemini stub is disconnected.](docs/images/backstory-local-flow.svg)
+
+Capture is explicit; notes save only when you choose. The flow is a simplified overview, not a replacement for the detailed module and security boundaries below. The opaque image backgrounds keep both visuals legible in light and dark README themes; open either SVG to zoom into its text.
 
 [Architecture with Mermaid diagram](docs/ARCHITECTURE.md) · [Verification notes](docs/TESTING.md)
 
