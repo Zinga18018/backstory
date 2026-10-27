@@ -13,11 +13,11 @@ Run `npm test` and `npm run check` to obtain the current exact case count. Tests
 
 `.github/workflows/check.yml` runs the Node tests, static checks, and packaging validation on push, pull request, or manual dispatch. It requires no project secrets, no package installation, and only read access to repository contents. It does not run browser QA or publish anything. A workflow file being present is not a passing CI run; verify the status for the actual pushed commit.
 
-## Not passed / blocked
+## Installed-extension QA: not passed / blocked
 
 The Chromium browser test did **not** execute successfully. The default sandbox blocked Chromium’s socket creation; the separate sandbox-exception launcher failed before the test started due to a runtime filesystem/mount error. Neither failure demonstrates an extension defect, but neither is a pass.
 
-Therefore, real Chrome rendering, unpacked extension UI behavior, live `activeTab` grants, browser downloads, and actual multi-tab locks have **not** been verified in this build environment. No screenshots from a successfully rendered extension were available for visual QA. No user browser was changed.
+Therefore, unpacked-extension behavior, live `activeTab` grants, actual `chrome.storage.local` persistence, and multi-tab extension locks remain **unverified** in this build environment. A separate, clearly labeled HTTP preview of the same UI was later rendered and tested in cloud Chrome, including actual JSON/Markdown downloads; see [browser-preview scope and screenshot provenance](UI-PREVIEW.md). That preview uses temporary in-memory storage and is not an installed extension. No extension was installed into the user’s browser.
 
 The reproducible script `scripts/browser_qa.py` is supplied for a suitable environment. It uses Python Playwright and a disposable Chromium profile with HTTP(S) blocked. It covers real extension storage/locks, save/reload/edit/cancel, safely rendered snippets, search/filter, downloads, privacy dialog, stale-window conflict, capture recovery/discard, narrow layout, delete/cancel, and popup rejection. Even a passing run of that script does not replace the real toolbar/GitHub gesture check below.
 
@@ -30,7 +30,7 @@ Use a disposable Chrome profile and a public repository you are allowed to captu
 - [ ] On a GitHub file page, select code and invoke the toolbar popup. Capture opens a workspace with the right URL/anchor, title, and only selected text.
 - [ ] Capture an empty selection, a >20,000-unit selection, and an emoji at the truncation boundary. No silent truncation or damaged emoji.
 - [ ] Navigate the tab or revoke access while capturing; failure is explained and the action can be tried again.
-- [ ] Finish a capture, save, reload, and confirm it persists. Close an unfinished capture; find it under Captures to finish. Discard explicitly.
+- [ ] Finish a capture, save, reload, and confirm it persists. Close an unfinished capture; find it under Unfinished captures. Discard explicitly.
 - [ ] Save a title-only card. Missing details are listed without claiming a fact check. Fill all fields; the UI still explains that presence is not verification.
 - [ ] Paste `<script>`/HTML into all text fields. It must display as text, never execute.
 - [ ] Cancel a dirty edit, dismiss the confirmation, then confirm it on a second attempt. Verify saved and unsaved versions stay distinct.
