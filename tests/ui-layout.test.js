@@ -4,6 +4,7 @@ import { readFileSync, mkdtempSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import vm from 'node:vm';
 
 const root = resolve(import.meta.dirname, '..');
 const read = file => readFileSync(join(root, file), 'utf8');
@@ -51,8 +52,33 @@ test('preview uses actual source unchanged, clearly labels test storage, and is 
     const preview = readFileSync(join(dist, 'index.html'), 'utf8');
     assert.match(preview, /Browser preview · temporary test storage · not an installed extension/);
     assert.match(preview, /src="preview-adapter.js"/);
+    assert.match(preview, /<base href="\/">/);
+    assert.match(preview, /href="\.\/">Backstory/);
+    assert.match(html, /href="app.html">Backstory/);
     assert.equal(existsSync(join(dist, 'manifest.json')), false);
     assert.doesNotMatch(html, /preview-adapter/);
     assert.doesNotMatch(read('extension/manifest.json'), /preview/);
+  } finally { rmSync(temp, { recursive: true, force: true }); }
+});
+
+
+test('preview-only clean URLs retain asset base paths and capture fragments', () => {
+  const context = vm.createContext({
+    structuredClone, queueMicrotask, URL,
+    document: { baseURI: 'https://example.test/demos/backstory/' },
+    location: { href: 'https://example.test/demos/backstory/popup/' },
+  });
+  vm.runInContext(read('scripts/preview/chrome-adapter.js'), context);
+  assert.equal(context.chrome.runtime.getURL('app.html#capture=sample'), 'https://example.test/demos/backstory/#capture=sample');
+  assert.equal(context.chrome.runtime.getURL('popup.html'), 'https://example.test/demos/backstory/popup/');
+
+  const temp = mkdtempSync(join(tmpdir(), 'backstory-preview-base-test-'));
+  try {
+    const output = join(temp, 'preview');
+    const result = spawnSync('python3', ['scripts/build-ui-preview.py', '--output', output, '--base-path', '/demos/backstory/'], { cwd: root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    for (const name of ['index.html', 'app.html', 'popup.html']) {
+      assert.match(readFileSync(join(output, 'dist', name), 'utf8'), /<base href="\/demos\/backstory\/">/);
+    }
   } finally { rmSync(temp, { recursive: true, force: true }); }
 });
