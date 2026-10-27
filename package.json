@@ -1,0 +1,14 @@
+{
+  "name": "backstory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first evidence cards and honest interview practice from your GitHub work.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.mjs",
+    "qa": "python3 scripts/browser_qa.py",
+    "package": "python3 scripts/package.py"
+  },
+  "engines": { "node": ">=20.11" }
+}
