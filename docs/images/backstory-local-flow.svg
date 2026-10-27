@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="635" viewBox="0 0 980 635" role="img" aria-labelledby="title desc">
+<title id="title">Backstory local-first flow</title><desc id="desc">User-initiated GitHub capture reads only URL, title and selected text. Captures and deliberately saved evidence cards remain in chrome.storage.local. Pure rules generate practice questions and missing-field hints. User-requested exports download saved cards as plaintext JSON or Markdown. No network service is connected; the optional Gemini stub is disabled.</desc>
+<rect x="0" y="0" width="980" height="635" rx="0" fill="#f8f7f2"/>
+<text x="34" y="40" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#254f3d" text-anchor="start">BACKSTORY / LOCAL-FIRST FLOW</text>
+<text x="34" y="88" font-family="Georgia, DejaVu Serif, serif" font-size="35" font-weight="400" fill="#213a31" text-anchor="start">Keep the context. Keep control.</text>
+<text x="34" y="123" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53635a" text-anchor="start">Explicit actions, local records, and readable rules — no runtime network calls.</text>
+<rect x="30" y="155" width="920" height="316" rx="14" fill="#fffefa" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="54" y="187" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#254f3d" text-anchor="start">CHROME EXTENSION · LOCAL PROFILE</text>
+<rect x="54" y="210" width="249" height="231" rx="10" fill="#f8f7f2" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="73" y="241" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#254f3d" text-anchor="start">01</text>
+<text x="73" y="279" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#213a31" text-anchor="start">Capture</text>
+<text x="73" y="317" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Click on a GitHub page.</text>
+<text x="73" y="344" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Read the URL, title,</text>
+<text x="73" y="371" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">and selected text only.</text>
+<path d="M73 390 L284 390" fill="none" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="73" y="418" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#254f3d" text-anchor="start">No background scraping</text>
+<rect x="365" y="210" width="249" height="231" rx="10" fill="#f8f7f2" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="384" y="241" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#254f3d" text-anchor="start">02</text>
+<text x="384" y="279" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#213a31" text-anchor="start">Reflect + save</text>
+<text x="384" y="317" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Add your own context.</text>
+<text x="384" y="344" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Save cards deliberately</text>
+<text x="384" y="371" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">to chrome.storage.local.</text>
+<path d="M384 390 L595 390" fill="none" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="384" y="418" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#254f3d" text-anchor="start">Notes do not autosave</text>
+<rect x="676" y="210" width="249" height="231" rx="10" fill="#f8f7f2" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="695" y="241" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#254f3d" text-anchor="start">03</text>
+<text x="695" y="279" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#213a31" text-anchor="start">Practice + export</text>
+<text x="695" y="317" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Seven rule-based prompts.</text>
+<text x="695" y="344" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Missing-field hints.</text>
+<text x="695" y="371" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">Export JSON / Markdown.</text>
+<path d="M695 390 L906 390" fill="none" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="695" y="418" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#254f3d" text-anchor="start">Saved cards only in exports</text>
+<text x="328" y="328" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="400" fill="#254f3d" text-anchor="middle">→</text>
+<text x="639" y="328" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="400" fill="#254f3d" text-anchor="middle">→</text>
+<rect x="30" y="491" width="440" height="110" rx="12" fill="#f0ecdf"/>
+<text x="51" y="522" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#254f3d" text-anchor="start">LOCAL ≠ ENCRYPTED</text>
+<text x="51" y="551" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#213a31" text-anchor="start">Profile storage and exports are not a vault.</text>
+<text x="51" y="576" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#213a31" text-anchor="start">Filled fields are not verified facts.</text>
+<rect x="488" y="491" width="462" height="110" rx="12" fill="#f8f7f2" stroke="#8b9b8e" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="509" y="522" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#254f3d" text-anchor="start">OUTSIDE THE RUNTIME</text>
+<text x="509" y="551" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#213a31" text-anchor="start">Optional Gemini stub: disabled, not connected.</text>
+<text x="509" y="576" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#213a31" text-anchor="start">No keys, remote processing, or paid API calls.</text>
+</svg>

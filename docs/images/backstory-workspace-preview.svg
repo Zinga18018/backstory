@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="760" viewBox="0 0 980 760" role="img" aria-labelledby="title desc">
+<title id="title">Backstory workspace — code-drawn UI preview</title><desc id="desc">Illustration, not a browser screenshot. The empty workspace offers a new evidence card, search and filters, local storage information, and Capture, Reflect, Practice guidance. No personal records are shown.</desc>
+<rect x="0" y="0" width="980" height="760" rx="0" fill="#f8f7f2"/>
+<text x="34" y="37" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#254f3d" text-anchor="start">BACKSTORY / UI OVERVIEW</text>
+<text x="946" y="37" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#53635a" text-anchor="end">ILLUSTRATION · NOT A SCREENSHOT</text>
+<rect x="30" y="65" width="920" height="600" rx="14" fill="#fffefa" stroke="#dce2d8" stroke-width="1.5"/>
+<rect x="31" y="66" width="229" height="598" rx="13" fill="#f0f1e9"/>
+<rect x="246" y="66" width="14" height="598" rx="0" fill="#f0f1e9"/>
+<path d="M260 66 L260 664" fill="none" stroke="#dce2d8" stroke-width="1.5"/>
+<rect x="51" y="94" width="38" height="38" rx="10" fill="#254f3d"/>
+<text x="69" y="122" font-family="Georgia, DejaVu Serif, serif" font-size="30" font-weight="400" fill="#ffffff" text-anchor="middle">b.</text>
+<text x="100" y="121" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#213a31" text-anchor="start">Backstory</text>
+<text x="51" y="158" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#53635a" text-anchor="start">The work is yours.</text>
+<text x="51" y="181" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#53635a" text-anchor="start">Keep the story, too.</text>
+<rect x="50" y="207" width="190" height="42" rx="7" fill="#254f3d"/>
+<text x="145.0" y="234" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">+ New evidence card</text>
+<text x="51" y="289" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#53635a" text-anchor="start">YOUR COLLECTION</text>
+<text x="51" y="320" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#213a31" text-anchor="start">Evidence cards</text>
+<rect x="214" y="301" width="25" height="25" rx="10" fill="#fffefa"/>
+<text x="226.5" y="319" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="middle">0</text>
+<text x="51" y="358" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">Search your work</text>
+<rect x="50" y="370" width="190" height="40" rx="7" fill="#fffefa" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="63" y="396" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#53635a" text-anchor="start">Project, decision, keyword…</text>
+<text x="51" y="443" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">Show</text>
+<rect x="99" y="422" width="141" height="36" rx="5" fill="#fffefa" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="112" y="446" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#213a31" text-anchor="start">All cards</text>
+<text x="225" y="446" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">⌄</text>
+<text x="51" y="491" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#53635a" text-anchor="start">Your first story</text>
+<text x="51" y="514" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#53635a" text-anchor="start">starts here.</text>
+<path d="M51 565 L238 565" fill="none" stroke="#dce2d8" stroke-width="1.5"/>
+<text x="51" y="594" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#254f3d" text-anchor="start">Stored on this device</text>
+<text x="51" y="621" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">No account. No sync.</text>
+<text x="51" y="641" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">No AI calls.</text>
+<text x="286" y="104" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#53635a" text-anchor="start">YOUR WORK, IN YOUR WORDS</text>
+<text x="286" y="132" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#53635a" text-anchor="start">A small collection of decisions worth remembering.</text>
+<path d="M260 158 L949 158" fill="none" stroke="#dce2d8" stroke-width="1.5"/>
+<rect x="567" y="190" width="68" height="68" rx="18" fill="#254f3d"/>
+<text x="601" y="241" font-family="Georgia, DejaVu Serif, serif" font-size="54" font-weight="400" fill="#ffffff" text-anchor="middle">b.</text>
+<text x="601" y="292" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#53635a" text-anchor="middle">A RECORD OF THE REAL WORK</text>
+<text x="601" y="341" font-family="Georgia, DejaVu Serif, serif" font-size="41" font-weight="400" fill="#213a31" text-anchor="middle">Good work deserves</text>
+<text x="601" y="386" font-family="Georgia, DejaVu Serif, serif" font-size="41" font-weight="400" fill="#213a31" text-anchor="middle">a backstory.</text>
+<text x="601" y="423" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="middle">The tricky bug. The trade-off. The part you owned.</text>
+<text x="601" y="448" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="middle">Turn the details you’ll forget into stories you can explain.</text>
+<rect x="490" y="475" width="223" height="42" rx="7" fill="#254f3d"/>
+<text x="601.5" y="502" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">Write my first card  ↗</text>
+<text x="289" y="560" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#53635a" text-anchor="start">01 / CAPTURE</text>
+<text x="289" y="587" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#213a31" text-anchor="start">Keep a starting point</text>
+<text x="289" y="613" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">A link and selected code.</text>
+<text x="512" y="560" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#53635a" text-anchor="start">02 / REFLECT</text>
+<text x="512" y="587" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#213a31" text-anchor="start">Add what only you know</text>
+<text x="512" y="613" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">The decisions behind it.</text>
+<text x="748" y="560" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#53635a" text-anchor="start">03 / PRACTICE</text>
+<text x="748" y="587" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#213a31" text-anchor="start">Tell it with evidence</text>
+<text x="748" y="613" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#53635a" text-anchor="start">Prompts, not a verdict.</text>
+<text x="34" y="703" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">A source-informed illustration of the empty workspace. Layout simplified for this overview.</text>
+<text x="34" y="733" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#53635a" text-anchor="start">No saved cards, private code, or user records. Real-browser extension QA is still separate.</text>
+</svg>

@@ -1,0 +1,20 @@
+{
+  "kind": "Code-drawn illustrations; not screenshots or extension-runtime QA",
+  "source_commit": "e949920e3b61a4d2975326ef8d0399a70a7295cb",
+  "source_commit_note": "Public source baseline reviewed for the first illustrations; hashes describe the local inputs used by this run.",
+  "input_sha256": {
+    "extension/app.html": "e7fe403e74974eb060058e8edbf04a4c836fd412d3d2ba59944dec2bcc9a8d48",
+    "extension/app.js": "78421254111f758c860cbe98c9121774e478da667f4b1a4e72c92b9a7d8e02dc",
+    "extension/popup.html": "ac38d38c3f99333e2c37cfc804ce82c231a0a8c8ff5898a3f1c2b78f28bae147",
+    "extension/styles.css": "ba7aceb34ae3372d8681464c1479e7dd6b4db6ebb24b849ec4ed95d07a877dcc",
+    "extension/manifest.json": "df75465ae70eff41270be8b3478ba2229d04c36d5333ee05650c117b420a055a",
+    "extension/core/domain.js": "8facba0a80940ac98cc6bdd5cc8b396ac99567a786551d068ba12e7848a20f2f",
+    "docs/ARCHITECTURE.md": "42161834322629522dd79b8d568691f6c2815698ba00765f6322c672f04070dd"
+  },
+  "output_sha256": {
+    "backstory-workspace-preview.svg": "efbeb3768d6574725b54b8d2589753eddfe7d46876738902d1d949eeab228950",
+    "backstory-local-flow.svg": "c689e182e5821a5b5af784495affbe3a3804270da643b1d99ac321cb94edd443"
+  },
+  "data": "Empty-state UI only; no personal records or fabricated outcomes",
+  "generator": "python scripts/generate_readme_visuals.py"
+}
