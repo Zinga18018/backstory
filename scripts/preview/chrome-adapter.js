@@ -39,6 +39,14 @@
       async query() { return [{ id: 1, url: location.href }]; },
       async create({ url }) { location.href = url; },
     },
-    runtime: { getURL: path => new URL(path, location.href).href },
+    runtime: {
+      getURL(path) {
+        const url = new URL(path, document.baseURI);
+        const file = url.pathname.split('/').at(-1);
+        if (file === 'app.html') url.pathname = new URL('./', document.baseURI).pathname;
+        if (file === 'popup.html') url.pathname = new URL('popup/', document.baseURI).pathname;
+        return url.href;
+      },
+    },
   };
 })();
