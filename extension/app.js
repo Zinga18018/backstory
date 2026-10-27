@@ -6,10 +6,10 @@ const workspace = document.querySelector('#workspace');
 const status = document.querySelector('#app-status');
 const state = { cards: [], captures: [], selected: null, editing: false, dirty: false, busy: false, captureId: null };
 const notes = {
-  problem: ['The problem', 'What was broken, slow, confusing, or missing? Who did it affect?'],
-  approach: ['Your approach', 'What did you choose, why, and what alternatives did you consider?'],
+  problem: ['Problem', 'What was broken, slow, confusing, or missing? Who did it affect?'],
+  approach: ['Approach', 'What did you choose, why, and what alternatives did you consider?'],
   failure: ['What didn’t work', 'What failed or surprised you? What did you change? If nothing failed, say so honestly and note what remains untested.'],
-  contribution: ['Your personal contribution', 'What did you personally design, implement, debug, or test? Distinguish your work from the team’s.'],
+  contribution: ['Your contribution', 'What did you personally design, implement, debug, or test? Distinguish your work from the team’s.'],
   evidence: ['Evidence and outcome', 'Point to a PR, test result, benchmark, or observable behavior. What supports the claim? If you have no measurement yet, say that.'],
 };
 
@@ -55,14 +55,14 @@ function renderList() {
     const item = button('', 'list-card', () => { if (canLeave()) showCard(card); });
     item.setAttribute('aria-current', String(state.selected?.id === card.id));
     item.append(element('span', 'list-title', card.title));
-    item.append(element('span', 'list-meta', `${complete ? 'Details present' : 'Room for detail'} · ${readableDate(card.updatedAt)}`));
+    item.append(element('span', 'list-meta', `${complete ? 'All fields filled' : 'Missing details'} · ${readableDate(card.updatedAt)}`));
     list.append(item);
   }
-  if (!matches.length) list.append(element('p', 'list-empty', state.cards.length ? 'No cards match this search.' : 'Your first story starts here.'));
+  if (!matches.length) list.append(element('p', 'list-empty', state.cards.length ? 'No cards match this search.' : 'No saved cards.'));
   document.querySelector('#total-count').textContent = state.cards.length;
   document.querySelector('#collection-summary').textContent = state.cards.length
-    ? `${state.cards.length} saved ${state.cards.length === 1 ? 'moment' : 'moments'} · Make the details count.`
-    : 'A small collection of decisions worth remembering.';
+    ? `${state.cards.length} saved ${state.cards.length === 1 ? 'card' : 'cards'}`
+    : 'Evidence cards';
   document.querySelector('#export-json').disabled = !state.cards.length;
   document.querySelector('#export-markdown').disabled = !state.cards.length;
   document.querySelector('#captures-section').hidden = !state.captures.length;
@@ -98,11 +98,10 @@ function showCard(card) {
   clearRoute();
   const layout = element('div', 'detail-layout');
   const main = element('article', 'detail-main');
-  main.append(element('p', 'eyebrow', 'AN EVIDENCE CARD · IN YOUR WORDS'));
   main.append(element('h1', 'detail-title', card.title));
   main.append(element('p', 'detail-meta', `Saved ${readableDate(card.createdAt)} · Updated ${readableDate(card.updatedAt)}`));
   const actions = element('div', 'detail-actions');
-  actions.append(button('Edit this card', 'button primary small', () => showEditor(card)));
+  actions.append(button('Edit', 'button primary small', () => showEditor(card)));
   actions.append(button('Delete', 'button danger small', () => deleteCard(card)));
   main.append(actions);
   if (card.url) {
@@ -111,25 +110,24 @@ function showCard(card) {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     main.append(link);
-  } else main.append(element('p', 'source-missing', 'No GitHub source link yet. Add one when you have it.'));
+  } else main.append(element('p', 'source-missing', 'No GitHub link.'));
   if (card.snippet) {
     const code = element('details');
-    code.append(element('summary', '', 'Saved code & context'));
+    code.append(element('summary', '', 'Code & context'));
     code.append(element('pre', '', card.snippet));
     main.append(code);
   }
   for (const field of FIELDS) {
     const section = element('section', 'story-section');
     section.append(element('h2', '', notes[field][0]));
-    section.append(element('p', `story-text${card[field] ? '' : ' missing'}`, card[field] || 'Still to add. A short, honest note is enough to start.'));
+    section.append(element('p', `story-text${card[field] ? '' : ' missing'}`, card[field] || 'Not added.'));
     main.append(section);
   }
   const side = element('aside', 'detail-side');
   const assessment = assessCard(card);
   const readiness = element('section', 'readiness-panel');
-  readiness.append(element('p', 'eyebrow', 'A COMPLETENESS CHECK, NOT A FACT CHECK'));
-  readiness.append(element('h2', '', assessment.complete ? 'The details are here.' : `${assessment.missing.length} ${assessment.missing.length === 1 ? 'detail' : 'details'} to revisit.`));
-  readiness.append(element('p', '', assessment.complete ? 'Every reflection field and the source link are filled. That does not establish accuracy or ownership.' : 'A few specifics will make this story easier to explain. Empty fields are opportunities, not failures.'));
+  readiness.append(element('h2', '', assessment.complete ? 'All fields filled' : `Missing details (${assessment.missing.length})`));
+  readiness.append(element('p', '', assessment.complete ? 'All notes and the source link are present. Accuracy and ownership are not verified.' : 'These fields are empty. This check does not verify facts.'));
   if (assessment.missing.length) {
     const gaps = element('ul', 'gap-list');
     for (const gap of assessment.missing) {
@@ -140,16 +138,15 @@ function showCard(card) {
     readiness.append(gaps);
   }
   const practice = element('section', 'practice-panel');
-  practice.append(element('p', 'eyebrow', 'SAY IT OUT LOUD'));
-  practice.append(element('h2', '', 'A little interview practice.'));
-  practice.append(element('p', '', 'Try a 90-second answer. Use the card as a starting point, not a script.'));
+  practice.append(element('h2', '', 'Practice questions'));
+  practice.append(element('p', '', 'Use your notes to explain the decision and its evidence.'));
   const questions = element('ol', 'practice-list');
-  generateQuestions(card).forEach((question, index) => {
+  generateQuestions(card).forEach(question => {
     const item = element('li');
-    item.append(element('span', 'question-label', `${String(index + 1).padStart(2, '0')} / ${question.focus}`), element('span', '', question.question));
+    item.append(element('span', 'question-label', question.focus), element('span', '', question.question));
     questions.append(item);
   });
-  practice.append(questions, element('p', 'practice-note', 'Rule-based prompts, not AI. Backstory cannot verify your claims. Keep uncertainty and team credit in your answer.'));
+  practice.append(questions, element('p', 'practice-note', 'Fixed prompts, not AI. Be clear about uncertainty and team contributions.'));
   side.append(readiness, practice);
   layout.append(main, side);
   workspace.replaceChildren(layout);
@@ -164,14 +161,14 @@ function showEditor(card = {}, { captureId = null } = {}) {
   state.dirty = false;
   state.captureId = captureId;
   workspace.replaceChildren(document.querySelector('#editor-template').content.cloneNode(true));
-  workspace.querySelector('#editor-title').textContent = captureId ? 'Keep the story behind it.' : card.id ? 'A little more context.' : 'Start with a real moment.';
+  workspace.querySelector('#editor-title').textContent = captureId ? 'Finish capture' : card.id ? 'Edit card' : 'New card';
   const form = workspace.querySelector('#card-form');
   const container = form.querySelector('.note-fields');
-  FIELDS.forEach((field, index) => {
+  FIELDS.forEach(field => {
     const wrapper = element('div', 'field');
     const label = element('label');
     label.htmlFor = field;
-    label.append(element('span', 'field-number', `0${index + 1}`), document.createTextNode(notes[field][0]));
+    label.textContent = notes[field][0];
     const input = element('textarea');
     input.id = field;
     input.name = field;
@@ -308,6 +305,6 @@ async function start() {
   else showEmpty();
 }
 start().catch(error => {
-  workspace.replaceChildren(element('h1', '', 'Your workspace needs attention.'), element('p', 'hero-copy', 'We could not safely read your local data. Nothing has been reset or overwritten. Try reloading the extension; keep a backup before uninstalling.'));
+  workspace.replaceChildren(element('h1', '', 'Could not load cards'), element('p', 'editor-help', 'We could not safely read your local data. Nothing has been reset or overwritten. Try reloading the extension; keep a backup before uninstalling.'));
   report(error);
 });

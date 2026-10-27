@@ -1,30 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Backstory</title>
-<link rel="stylesheet" href="styles.css">
-<script type="module" src="popup.js">
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backstory</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="popup.js"></script>
 </head>
 <body class="popup-body">
-  <header class="brand">
-<span class="brand-mark" aria-hidden="true">b.</span>
-<span>Backstory</span>
-<span class="local-badge">On this device</span>
-</header>
+  <header class="popup-header"><h1>Backstory</h1></header>
   <main>
-    <p class="eyebrow">KEEP THE WHY, NOT JUST THE CODE</p>
-    <h1>A little context.<br>A better story.</h1>
-    <p class="muted">Select a useful piece of code on GitHub, then save the decisions behind it.</p>
-    <button id="capture" class="button primary full">Capture this GitHub page <span aria-hidden="true">↗</span>
-</button>
-    <button id="open-workspace" class="button secondary full">Open my evidence cards</button>
-    <p id="popup-status" class="status" role="status" aria-live="polite">Nothing is captured until you click. No selection? Save the link and add your own notes.</p>
+    <p>Save the current GitHub link and selected text, then add your notes.</p>
+    <button id="capture" class="button primary full">Capture page</button>
+    <button id="open-workspace" class="button secondary full">Open cards</button>
+    <p id="popup-status" class="status" role="status" aria-live="polite">Capture starts only when you click. Selected text is optional.</p>
   </main>
-  <footer class="popup-footer">
-<span class="status-dot" aria-hidden="true">
-</span>Local only · No account · No AI calls</footer>
+  <footer class="popup-footer">Local storage · Gemini off</footer>
 </body>
 </html>

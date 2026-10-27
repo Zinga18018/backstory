@@ -1,145 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Backstory · Your evidence cards</title>
-<link rel="stylesheet" href="styles.css">
-<script type="module" src="app.js">
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backstory · Evidence cards</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
 </head>
 <body class="workspace-body">
   <a class="skip-link" href="#workspace">Skip to workspace</a>
   <aside class="sidebar">
-    <a class="brand brand-link" href="app.html">
-<span class="brand-mark" aria-hidden="true">b.</span>
-<span>Backstory</span>
-</a>
-    <p class="sidebar-tagline">The work is yours.<br>Keep the story, too.</p>
-    <button class="button primary full" id="new-card">+ New evidence card</button>
-    <div class="nav-label">YOUR COLLECTION</div>
+    <a class="brand brand-link" href="app.html">Backstory</a>
+    <button class="button primary full" id="new-card">New card</button>
+
     <div class="collection-label">
-<span>Evidence cards</span>
-<span id="total-count" class="count-pill">0</span>
-</div>
-    <label class="search-label" for="search">Search your work</label>
-    <input id="search" class="search-input" type="search" placeholder="Project, decision, keyword…" maxlength="200" autocomplete="off">
+      <span>Evidence cards</span>
+      <span id="total-count">0</span>
+    </div>
+    <label class="search-label" for="search">Search cards</label>
+    <input id="search" class="search-input" type="search" placeholder="Search cards…" maxlength="200" autocomplete="off">
     <div class="filter-row">
-<label for="filter">Show</label>
-<select id="filter">
-<option value="all">All cards</option>
-<option value="gaps">With missing details</option>
-<option value="complete">All details present</option>
-</select>
-</div>
-    <nav id="card-list" class="card-list" aria-label="Saved evidence cards">
-</nav>
+      <label for="filter">Show</label>
+      <select id="filter">
+        <option value="all">All cards</option>
+        <option value="gaps">Missing details</option>
+        <option value="complete">All fields filled</option>
+      </select>
+    </div>
+    <nav id="card-list" class="card-list" aria-label="Saved evidence cards"></nav>
     <section id="captures-section" hidden>
-<h2 class="nav-label">CAPTURES TO FINISH</h2>
-<div id="capture-list">
-</div>
-</section>
+      <h2 class="nav-label">Unfinished captures</h2>
+      <div id="capture-list"></div>
+    </section>
     <footer class="sidebar-footer">
-<span class="local-badge">
-<span class="status-dot" aria-hidden="true">
-</span>Stored on this device</span>
-<p>No account. No sync. No AI calls.<br>Export a backup before uninstalling.</p>
-<button id="privacy" class="text-button">How your data is handled</button>
-</footer>
+      <p>Stored in this Chrome profile.<br>No sync or AI requests.</p>
+      <button id="privacy" class="text-button">Data &amp; privacy</button>
+    </footer>
   </aside>
+
   <div class="main-shell">
     <header class="workspace-header">
-<div>
-<p class="eyebrow">YOUR WORK, IN YOUR WORDS</p>
-<p id="collection-summary" class="muted">A small collection of decisions worth remembering.</p>
-</div>
-<div class="export-controls">
-<button id="export-json" class="button secondary small">Export JSON</button>
-<button id="export-markdown" class="button secondary small">Export Markdown</button>
-</div>
-</header>
-    <div id="app-status" class="app-status" role="status" aria-live="polite">
-</div>
-    <main id="workspace" tabindex="-1">
-</main>
+      <p id="collection-summary">Evidence cards</p>
+      <div class="export-controls" aria-label="Export saved cards">
+        <button id="export-json" class="button secondary small">Export JSON</button>
+        <button id="export-markdown" class="button secondary small">Export Markdown</button>
+      </div>
+    </header>
+    <div id="app-status" class="app-status" role="status" aria-live="polite"></div>
+    <main id="workspace" tabindex="-1"></main>
   </div>
+
   <dialog id="privacy-dialog">
-<div class="dialog-heading">
-<h2>Private by design. Not a vault.</h2>
-<button id="close-privacy" class="button secondary small">Close</button>
-</div>
-<p>Backstory reads the GitHub URL, page title, and selected text only after you click Capture. It never scans your browsing history or reads whole repositories in the background.</p>
-<p>Cards and unfinished captures live in this Chrome profile’s local extension storage. Nothing is sent to an AI service. Local storage is not encrypted by Backstory; someone with access to your profile or device may be able to read it.</p>
-<p>Do not save credentials or confidential code you are not allowed to keep. Export files contain your notes and snippets as plain text. Check them before sharing. Uninstalling removes local extension data; keep a backup if you need it.</p>
-<p>Missing-detail checks look for filled fields. They do not verify facts, authorship, results, or whether a link proves your claim. Practice questions are fixed rules, not AI output.</p>
-<p>The optional Gemini adapter is a disabled development stub and is not included in the extension runtime.</p>
-</dialog>
+    <div class="dialog-heading">
+      <h2>Data &amp; privacy</h2>
+      <button id="close-privacy" class="button secondary small">Close</button>
+    </div>
+    <p>Backstory reads the GitHub URL, page title, and selected text only after you click Capture. It does not scan your browsing history or repositories in the background.</p>
+    <p>Cards and unfinished captures stay in this Chrome profile’s local extension storage. Nothing is sent to an AI service. Backstory does not encrypt this data; someone with access to your profile or device may be able to read it.</p>
+    <p>Do not save credentials or code you are not allowed to retain. Exports contain plain-text notes and snippets. Review them before sharing. Export a backup before uninstalling: uninstalling removes local extension data.</p>
+    <p>Missing-detail checks only look for filled fields. They do not verify facts, authorship, results, or links. Practice questions use fixed rules, not AI.</p>
+    <p>The optional Gemini adapter is disabled and is not part of the extension runtime.</p>
+  </dialog>
+
   <template id="empty-template">
-<section class="empty-hero">
-<span class="notebook-icon" aria-hidden="true">b.</span>
-<p class="eyebrow">A RECORD OF THE REAL WORK</p>
-<h1>Good work deserves<br>a backstory.</h1>
-<p class="hero-copy">The tricky bug. The trade-off. The part you owned.<br>Turn the details you’ll forget into stories you can explain.</p>
-<button class="button primary" data-action="new">Write my first card <span aria-hidden="true">↗</span>
-</button>
-<div class="empty-steps">
-<article>
-<span>01 / CAPTURE</span>
-<h2>Keep a starting point</h2>
-<p>Use the toolbar on GitHub to save a link and selected code. Or start here with a blank card.</p>
-</article>
-<article>
-<span>02 / REFLECT</span>
-<h2>Add what only you know</h2>
-<p>What was hard? What did you try? Which part was actually yours? Be specific.</p>
-</article>
-<article>
-<span>03 / PRACTICE</span>
-<h2>Tell it with evidence</h2>
-<p>Use thoughtful prompts to explain your work. Missing details are a nudge, not a verdict.</p>
-</article>
-</div>
-</section>
-</template>
+    <section class="empty-state">
+      <h1>No evidence cards yet</h1>
+      <p>Save a GitHub link, the code you selected, and notes about your work.</p>
+      <button class="button primary" data-action="new">New card</button>
+      <p class="empty-help">To capture from GitHub, open a repository page and click Backstory in the Chrome toolbar.</p>
+    </section>
+  </template>
+
   <template id="editor-template">
-<section class="editor-panel">
-<div class="section-heading">
-<div>
-<p class="eyebrow">THE DETAILS MAKE THE DIFFERENCE</p>
-<h1 id="editor-title">New evidence card</h1>
-</div>
-<span class="local-badge">Saved only when you choose</span>
-</div>
-<p class="muted">Write what happened, not what sounds impressive. Only the title is required.</p>
-<form id="card-form">
-<fieldset id="editor-fields">
-<div class="field">
-<label for="title">Give this moment a name <span class="required">Required</span>
-</label>
-<input id="title" name="title" required maxlength="160" placeholder="e.g. Fixing a race condition in checkout" autocomplete="off">
-</div>
-<div class="field">
-<label for="url">GitHub source link <span class="optional">Optional</span>
-</label>
-<input id="url" name="url" type="url" maxlength="2048" placeholder="https://github.com/owner/repo/…">
-<p class="field-hint">A commit, pull request, or file link. A commit permalink is less likely to change. Query strings are removed.</p>
-</div>
-<div class="field">
-<label for="snippet">Selected code or context <span class="optional">Optional · 20,000 characters max</span>
-</label>
-<textarea id="snippet" name="snippet" class="code-input" rows="5" maxlength="20000" placeholder="Keep just the lines you need to explain the decision.">
-</textarea>
-</div>
-<div class="note-fields">
-</div>
-</fieldset>
-<div class="editor-actions">
-<button type="submit" class="button primary" id="save-card">Save evidence card</button>
-<button type="button" class="button secondary" id="cancel-edit">Cancel</button>
-<span class="field-hint">Notes stay on this device.</span>
-</div>
-</form>
-</section>
-</template>
+    <section class="editor-panel">
+      <div class="section-heading">
+        <h1 id="editor-title">New card</h1>
+      </div>
+      <p class="editor-help">Only the title is required. Changes are not saved until you click Save.</p>
+      <form id="card-form">
+        <fieldset id="editor-fields">
+          <div class="field">
+            <label for="title">Title <span class="required">Required</span></label>
+            <input id="title" name="title" required maxlength="160" placeholder="e.g. Handling failed requests" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="url">GitHub link <span class="optional">Optional</span></label>
+            <input id="url" name="url" type="url" maxlength="2048" placeholder="https://github.com/owner/repo/…">
+            <p class="field-hint">Use a commit, pull request, or file link. Query strings are removed.</p>
+          </div>
+          <div class="field">
+            <label for="snippet">Code or context <span class="optional">Optional · 20,000 characters max</span></label>
+            <textarea id="snippet" name="snippet" class="code-input" rows="4" maxlength="20000" placeholder="Selected code or a short excerpt"></textarea>
+          </div>
+          <div class="note-fields"></div>
+        </fieldset>
+        <div class="editor-actions">
+          <button type="submit" class="button primary" id="save-card">Save</button>
+          <button type="button" class="button secondary" id="cancel-edit">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </template>
 </body>
 </html>
